@@ -1,0 +1,54 @@
+[
+  {
+    "id": "USR-TN-1001",
+    "name": "Karthik Ramachandran",
+    "email": "karthik.tn@cineverse.in",
+    "password": "Cinema@123",
+    "phone": "+91 98401 23456",
+    "city": "Chennai",
+    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=300&auto=format&fit=crop",
+    "tier": "CinePass VIP Thalaivar",
+    "loyaltyPoints": 1250,
+    "moviesWatched": 28,
+    "savedSeats": 4
+  },
+  {
+    "id": "USR-TN-1002",
+    "name": "Ananya Sundaram",
+    "email": "ananya.chennai@cineverse.in",
+    "password": "Ananya@456",
+    "phone": "+91 97890 87654",
+    "city": "Chennai",
+    "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&auto=format&fit=crop",
+    "tier": "CinePass Gold Member",
+    "loyaltyPoints": 840,
+    "moviesWatched": 16,
+    "savedSeats": 2
+  },
+  {
+    "id": "USR-TN-1003",
+    "name": "Vijay Anand",
+    "email": "vijayanand@cineverse.in",
+    "password": "Vijay@789",
+    "phone": "+91 94432 11223",
+    "city": "Madurai",
+    "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
+    "tier": "CinePass Silver Member",
+    "loyaltyPoints": 420,
+    "moviesWatched": 9,
+    "savedSeats": 3
+  },
+  {
+    "id": "USR-TN-1004",
+    "name": "Priya Murugan",
+    "email": "priya.cbe@cineverse.in",
+    "password": "Priya@321",
+    "phone": "+91 98940 99887",
+    "city": "Coimbatore",
+    "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop",
+    "tier": "CinePass Premier Club",
+    "loyaltyPoints": 960,
+    "moviesWatched": 21,
+    "savedSeats": 6
+  }
+]

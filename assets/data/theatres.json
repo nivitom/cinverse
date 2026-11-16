@@ -1,0 +1,344 @@
+[
+  {
+    "id": "th-tn-001",
+    "name": "Sathyam Cinemas (SPI)",
+    "chain": "PVR INOX SPI",
+    "city": "Chennai",
+    "distance": "2.4 km away",
+    "address": "8, Thiru Vi Ka Rd, Royapettah, Chennai, TN 600014",
+    "rating": 4.9,
+    "totalScreens": 6,
+    "amenities": [
+      "RDX 4K Laser",
+      "Dolby Atmos 128ch",
+      "Famous Sathyam Popcorn",
+      "Heated Recliners",
+      "Valet Parking"
+    ],
+    "screens": [
+      {
+        "screenId": "SCR-SATHYAM-1",
+        "name": "Screen 1 – Sathyam Main",
+        "format": "RDX 4K Dolby Atmos",
+        "basePrice": 190.00,
+        "showtimes": [
+          {"time": "09:30 AM", "status": "Available"},
+          {"time": "01:15 PM", "status": "Filling Fast"},
+          {"time": "05:00 PM", "status": "Almost Full"},
+          {"time": "08:45 PM", "status": "Almost Full"},
+          {"time": "11:55 PM", "status": "Filling Fast"}
+        ]
+      },
+      {
+        "screenId": "SCR-SATHYAM-2",
+        "name": "Screen 2 – Santham",
+        "format": "Dolby Atmos 7.1",
+        "basePrice": 160.00,
+        "showtimes": [
+          {"time": "10:45 AM", "status": "Available"},
+          {"time": "02:30 PM", "status": "Available"},
+          {"time": "06:15 PM", "status": "Filling Fast"},
+          {"time": "10:00 PM", "status": "Available"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "th-tn-002",
+    "name": "Palazzo Cinemas (Nexus Mall)",
+    "chain": "PVR INOX",
+    "city": "Chennai",
+    "distance": "4.1 km away",
+    "address": "Nexus Vijaya Mall, Arcot Rd, Vadapalani, Chennai, TN 600026",
+    "rating": 4.8,
+    "totalScreens": 9,
+    "amenities": [
+      "IMAX with Laser",
+      "Italian Palace Decor",
+      "Luxury Recliners",
+      "Gourmet Canteen",
+      "Mall Parking"
+    ],
+    "screens": [
+      {
+        "screenId": "SCR-PALAZZO-IMAX",
+        "name": "Screen 3 – Palazzo IMAX",
+        "format": "IMAX Laser",
+        "basePrice": 250.00,
+        "showtimes": [
+          {"time": "10:00 AM", "status": "Available"},
+          {"time": "01:45 PM", "status": "Filling Fast"},
+          {"time": "05:30 PM", "status": "Almost Full"},
+          {"time": "09:15 PM", "status": "Almost Full"}
+        ]
+      },
+      {
+        "screenId": "SCR-PALAZZO-AUDI",
+        "name": "Screen 5 – Grand Audi",
+        "format": "Dolby Atmos",
+        "basePrice": 180.00,
+        "showtimes": [
+          {"time": "11:30 AM", "status": "Available"},
+          {"time": "03:15 PM", "status": "Available"},
+          {"time": "07:00 PM", "status": "Filling Fast"},
+          {"time": "10:30 PM", "status": "Available"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "th-tn-003",
+    "name": "Rohini Silver Screens",
+    "chain": "Rohini Theatres",
+    "city": "Chennai",
+    "distance": "6.8 km away",
+    "address": "141/2, Poonamallee High Rd, Koyambedu, Chennai, TN 600107",
+    "rating": 4.8,
+    "totalScreens": 8,
+    "amenities": [
+      "Dolby 7.1 & Atmos",
+      "Fans Festival FDFS",
+      "Laser Projection",
+      "Food Court",
+      "Direct Metro Access"
+    ],
+    "screens": [
+      {
+        "screenId": "SCR-ROHINI-MAIN",
+        "name": "Screen 1 – Fans Fort Grand",
+        "format": "Dolby Atmos 4K",
+        "basePrice": 160.00,
+        "showtimes": [
+          {"time": "08:30 AM", "status": "Filling Fast"},
+          {"time": "11:45 AM", "status": "Filling Fast"},
+          {"time": "03:15 PM", "status": "Available"},
+          {"time": "06:45 PM", "status": "Almost Full"},
+          {"time": "10:30 PM", "status": "Almost Full"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "th-tn-004",
+    "name": "Vettri Theatres RGB Laser",
+    "chain": "Vettri Cinemas",
+    "city": "Chennai",
+    "distance": "12.0 km away",
+    "address": "GST Road, Chromepet, Chennai, TN 600044",
+    "rating": 4.7,
+    "totalScreens": 4,
+    "amenities": [
+      "Barco 4K RGB Laser",
+      "Dolby Atmos 64ch",
+      "Plush Rocker Seats",
+      "Quick Snack Counter"
+    ],
+    "screens": [
+      {
+        "screenId": "SCR-VETTRI-1",
+        "name": "Vettri Screen – Laser",
+        "format": "Barco 4K Laser Dolby Atmos",
+        "basePrice": 150.00,
+        "showtimes": [
+          {"time": "10:15 AM", "status": "Available"},
+          {"time": "02:00 PM", "status": "Available"},
+          {"time": "06:00 PM", "status": "Filling Fast"},
+          {"time": "09:45 PM", "status": "Almost Full"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "th-tn-005",
+    "name": "Broadway Cinemas (EPIQ)",
+    "chain": "Broadway Mega Multiplex",
+    "city": "Coimbatore",
+    "distance": "3.5 km away",
+    "address": "Avinashi Road, Civil Aerodrome Post, Coimbatore, TN 641014",
+    "rating": 4.9,
+    "totalScreens": 9,
+    "amenities": [
+      "South India's Largest EPIQ Screen",
+      "Dolby Atmos Dual Laser",
+      "Luxury Recliners",
+      "South Indian Canteen",
+      "EV Charging Station"
+    ],
+    "screens": [
+      {
+        "screenId": "SCR-CBE-EPIQ",
+        "name": "Screen 1 – Broadway EPIQ",
+        "format": "EPIQ Premium Giant Screen",
+        "basePrice": 250.00,
+        "showtimes": [
+          {"time": "10:00 AM", "status": "Available"},
+          {"time": "01:30 PM", "status": "Filling Fast"},
+          {"time": "05:15 PM", "status": "Almost Full"},
+          {"time": "09:00 PM", "status": "Almost Full"}
+        ]
+      },
+      {
+        "screenId": "SCR-CBE-LUXE",
+        "name": "Screen 2 – Gold Class",
+        "format": "Dolby Atmos 4K",
+        "basePrice": 180.00,
+        "showtimes": [
+          {"time": "11:15 AM", "status": "Available"},
+          {"time": "03:00 PM", "status": "Available"},
+          {"time": "06:30 PM", "status": "Filling Fast"},
+          {"time": "10:15 PM", "status": "Available"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "th-tn-006",
+    "name": "KG Cinemas 4K Dolby",
+    "chain": "KG Entertainment",
+    "city": "Coimbatore",
+    "distance": "1.8 km away",
+    "address": "Bungalow Road, Race Course, Coimbatore, TN 641018",
+    "rating": 4.8,
+    "totalScreens": 5,
+    "amenities": [
+      "Barco 4K Laser",
+      "Dolby Atmos 128ch",
+      "Legendary Canteen Snacks",
+      "Valet Parking"
+    ],
+    "screens": [
+      {
+        "screenId": "SCR-KG-1",
+        "name": "Screen 1 – Big Screen",
+        "format": "Barco 4K Dolby Atmos",
+        "basePrice": 160.00,
+        "showtimes": [
+          {"time": "10:30 AM", "status": "Available"},
+          {"time": "02:15 PM", "status": "Available"},
+          {"time": "06:00 PM", "status": "Filling Fast"},
+          {"time": "09:45 PM", "status": "Almost Full"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "th-tn-007",
+    "name": "INOX Vishaal De Mall",
+    "chain": "PVR INOX",
+    "city": "Madurai",
+    "distance": "2.2 km away",
+    "address": "Gokhale Road, Chinna Chokkikulam, Madurai, TN 625002",
+    "rating": 4.7,
+    "totalScreens": 5,
+    "amenities": [
+      "Dolby Atmos",
+      "Kiddles Lounge",
+      "Recliner Seats",
+      "Madurai Mall Food Court"
+    ],
+    "screens": [
+      {
+        "screenId": "SCR-MDU-INOX",
+        "name": "Screen 2 – INOX Atmos",
+        "format": "Dolby Atmos 4K",
+        "basePrice": 170.00,
+        "showtimes": [
+          {"time": "11:00 AM", "status": "Available"},
+          {"time": "02:45 PM", "status": "Filling Fast"},
+          {"time": "06:30 PM", "status": "Almost Full"},
+          {"time": "10:15 PM", "status": "Available"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "th-tn-008",
+    "name": "LA Cinemas (Maris Multiplex)",
+    "chain": "LA Cinemas",
+    "city": "Tiruchirappalli",
+    "distance": "1.5 km away",
+    "address": "Fort Station Road, Thillai Nagar, Tiruchirappalli, TN 620002",
+    "rating": 4.8,
+    "totalScreens": 5,
+    "amenities": [
+      "Dolby Atmos 3D",
+      "4K Laser Projection",
+      "Rocking Chairs",
+      "Trichy Special Snacks"
+    ],
+    "screens": [
+      {
+        "screenId": "SCR-TRY-LA",
+        "name": "Screen 1 – Royal Audi",
+        "format": "4K Laser Dolby Atmos",
+        "basePrice": 160.00,
+        "showtimes": [
+          {"time": "10:30 AM", "status": "Available"},
+          {"time": "02:00 PM", "status": "Available"},
+          {"time": "06:00 PM", "status": "Filling Fast"},
+          {"time": "09:30 PM", "status": "Almost Full"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "th-tn-009",
+    "name": "Ram Muthuram Cinemas",
+    "chain": "Ram Muthuram",
+    "city": "Tirunelveli",
+    "distance": "2.0 km away",
+    "address": "Tirunelveli Town, Vannarpettai, Tirunelveli, TN 627003",
+    "rating": 4.9,
+    "totalScreens": 3,
+    "amenities": [
+      "RGB Laser 4K",
+      "Dolby Atmos Sound",
+      "Iconic FDFS Celebration Atmosphere",
+      "Tirunelveli Halwa Counter"
+    ],
+    "screens": [
+      {
+        "screenId": "SCR-TNV-RAM",
+        "name": "Screen 1 – Grand Laser",
+        "format": "Barco 4K Laser Dolby Atmos",
+        "basePrice": 150.00,
+        "showtimes": [
+          {"time": "09:00 AM", "status": "Filling Fast"},
+          {"time": "01:30 PM", "status": "Available"},
+          {"time": "05:45 PM", "status": "Almost Full"},
+          {"time": "09:30 PM", "status": "Almost Full"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "th-tn-010",
+    "name": "ARRS Multiplex",
+    "chain": "ARRS Cinemas",
+    "city": "Salem",
+    "distance": "2.8 km away",
+    "address": "Meyyanur Bypass Rd, Salem, TN 636004",
+    "rating": 4.7,
+    "totalScreens": 5,
+    "amenities": [
+      "Dolby Atmos 7.1",
+      "Laser Projection",
+      "Family Lounges",
+      "Ample Parking"
+    ],
+    "screens": [
+      {
+        "screenId": "SCR-SLM-ARRS",
+        "name": "Screen 1 – Dolby Atmos",
+        "format": "Dolby Atmos 4K",
+        "basePrice": 150.00,
+        "showtimes": [
+          {"time": "10:45 AM", "status": "Available"},
+          {"time": "02:30 PM", "status": "Available"},
+          {"time": "06:15 PM", "status": "Filling Fast"},
+          {"time": "10:00 PM", "status": "Available"}
+        ]
+      }
+    ]
+  }
+]

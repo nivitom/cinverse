@@ -1,0 +1,60 @@
+[
+  {
+    "id": "BK-TN-90421",
+    "movieId": "mov-tn-001",
+    "movieTitle": "Amaran",
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/5/54/Amaran_2024_poster.jpg",
+    "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/5/54/Amaran_2024_poster.jpg",
+    "theatreId": "th-tn-001",
+    "theatreName": "Sathyam Cinemas (SPI)",
+    "theatreAddress": "8, Thiru Vi Ka Rd, Royapettah, Chennai, TN 600014",
+    "screen": "Screen 1 – Sathyam Main",
+    "format": "RDX 4K Dolby Atmos",
+    "showDate": "Tomorrow, 17 Nov",
+    "showTime": "05:00 PM",
+    "seats": [
+      "E5",
+      "E6"
+    ],
+    "seatTier": "VIP Recliner",
+    "ticketCount": 2,
+    "ticketPrice": 240.00,
+    "convenienceFee": 50.00,
+    "tax": 57.60,
+    "discount": 0.0,
+    "totalAmount": 587.60,
+    "paymentMethod": "Google Pay (UPI)",
+    "bookingTimestamp": "2026-11-16T10:15:00Z",
+    "status": "CONFIRMED",
+    "bookingCode": "CNV-CHN-904218"
+  },
+  {
+    "id": "BK-TN-87239",
+    "movieId": "mov-tn-002",
+    "movieTitle": "The Greatest of All Time (GOAT)",
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/1/1e/The_Greatest_of_All_Time.jpg",
+    "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/1/1e/The_Greatest_of_All_Time.jpg",
+    "theatreId": "th-tn-005",
+    "theatreName": "Broadway Cinemas (EPIQ)",
+    "theatreAddress": "Avinashi Road, Civil Aerodrome, Coimbatore, TN 641014",
+    "screen": "Screen 1 – Broadway EPIQ",
+    "format": "EPIQ Premium Giant Screen",
+    "showDate": "12 Nov 2026",
+    "showTime": "05:15 PM",
+    "seats": [
+      "D4",
+      "D5"
+    ],
+    "seatTier": "Premium",
+    "ticketCount": 2,
+    "ticketPrice": 250.00,
+    "convenienceFee": 50.00,
+    "tax": 60.00,
+    "discount": 100.00,
+    "totalAmount": 510.00,
+    "paymentMethod": "RuPay Platinum Card",
+    "bookingTimestamp": "2026-11-12T14:30:00Z",
+    "status": "COMPLETED",
+    "bookingCode": "CNV-CBE-872391"
+  }
+]

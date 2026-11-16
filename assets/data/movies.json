@@ -1,0 +1,338 @@
+[
+  {
+    "id": "mov-tn-001",
+    "title": "Amaran",
+    "genre": ["Action", "Biography", "Drama"],
+    "rating": 9.4,
+    "votes": "218.4K",
+    "duration": "2h 47m",
+    "releaseDate": "2024-10-31",
+    "certificate": "UA 16+",
+    "language": "Tamil (Dolby Atmos 7.1)",
+    "formats": ["IMAX 2D", "Dolby Atmos", "2D Digital"],
+    "isFeatured": true,
+    "isNowShowing": true,
+    "isUpcoming": false,
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/5/54/Amaran_2024_poster.jpg",
+    "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/5/54/Amaran_2024_poster.jpg",
+    "synopsis": "The heroic true-life journey of Major Mukund Varadarajan AC of the 44th Rashtriya Rifles Battalion, celebrating his fearless leadership during counter-terrorism operations in the Qazipathri region of Shopian, Kashmir, and his eternal love story with his wife Indhu Rebecca Varghese.",
+    "director": "Rajkumar Periasamy",
+    "price": 190.00,
+    "cast": [
+      {
+        "name": "Sivakarthikeyan",
+        "role": "Major Mukund Varadarajan AC",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sivakarthikeyan_at_the_Kashmora_Success_Meet.jpg/440px-Sivakarthikeyan_at_the_Kashmora_Success_Meet.jpg"
+      },
+      {
+        "name": "Sai Pallavi",
+        "role": "Indhu Rebecca Varghese",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sai_Pallavi_at_Gargi_Press_Meet.jpg/440px-Sai_Pallavi_at_Gargi_Press_Meet.jpg"
+      },
+      {
+        "name": "Bhuvan Arora",
+        "role": "Sepoy Vikram Singh",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Bhuvan_Arora_promoting_Farzi.jpg/440px-Bhuvan_Arora_promoting_Farzi.jpg"
+      },
+      {
+        "name": "Rahul Bose",
+        "role": "Col. Amit Singh Dahiya",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Rahul_Bose_at_the_special_screening_of_Poorna.jpg/440px-Rahul_Bose_at_the_special_screening_of_Poorna.jpg"
+      }
+    ]
+  },
+  {
+    "id": "mov-tn-002",
+    "title": "The Greatest of All Time (GOAT)",
+    "genre": ["Sci-Fi", "Action", "Spy Thriller"],
+    "rating": 9.1,
+    "votes": "342.1K",
+    "duration": "3h 03m",
+    "releaseDate": "2024-09-05",
+    "certificate": "UA 16+",
+    "language": "Tamil (Dolby Atmos)",
+    "formats": ["IMAX 2D", "Dolby Atmos", "EPIQ", "2D Digital"],
+    "isFeatured": true,
+    "isNowShowing": true,
+    "isUpcoming": false,
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/1/1e/The_Greatest_of_All_Time.jpg",
+    "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/1/1e/The_Greatest_of_All_Time.jpg",
+    "synopsis": "A seasoned field operative from SATS (Special Anti-Terrorist Squad) retires following a tragic mission in Thailand. Years later, a catastrophic threat engineered by his long-lost rogue clone resurfaces across Moscow and Chennai, pulling him back into an adrenaline-charged cyber-kinetic war.",
+    "director": "Venkat Prabhu",
+    "price": 220.00,
+    "cast": [
+      {
+        "name": "Thalapathy Vijay",
+        "role": "Gandhi & Jeevan (Dual Role)",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Vijay_at_the_Varisu_Audio_Launch.jpg/440px-Vijay_at_the_Varisu_Audio_Launch.jpg"
+      },
+      {
+        "name": "Prashanth",
+        "role": "Sunil Thiagarajan",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Actor_Prashanth_at_the_Press_Meet.jpg/440px-Actor_Prashanth_at_the_Press_Meet.jpg"
+      },
+      {
+        "name": "Prabhu Deva",
+        "role": "Kalyan Sundaram",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Prabhu_Deva_at_the_Trailer_Launch.jpg/440px-Prabhu_Deva_at_the_Trailer_Launch.jpg"
+      },
+      {
+        "name": "Sneha",
+        "role": "Anuradha Gandhi",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Sneha_at_the_Audio_Launch.jpg/440px-Sneha_at_the_Audio_Launch.jpg"
+      }
+    ]
+  },
+  {
+    "id": "mov-tn-003",
+    "title": "Leo: Bloody Sweet",
+    "genre": ["Action", "Crime", "Thriller"],
+    "rating": 9.3,
+    "votes": "480.9K",
+    "duration": "2h 44m",
+    "releaseDate": "2023-10-19",
+    "certificate": "UA 16+",
+    "language": "Tamil (Dolby Atmos)",
+    "formats": ["IMAX 2D", "Dolby Atmos", "4DX", "2D Digital"],
+    "isFeatured": true,
+    "isNowShowing": true,
+    "isUpcoming": false,
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/7/75/Leo_%282023_Indian_film%29.jpg",
+    "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/7/75/Leo_%282023_Indian_film%29.jpg",
+    "synopsis": "Parthiban is a mild-mannered cafe owner in Theog, Himachal Pradesh, who lives peacefully with his family. When his violent encounter with armed robbers attracts national media spotlight, ruthless cartel warlords Antony and Harold Das arrive, suspecting him to be their long-presumed-dead enforcer Leo Das.",
+    "director": "Lokesh Kanagaraj",
+    "price": 200.00,
+    "cast": [
+      {
+        "name": "Thalapathy Vijay",
+        "role": "Parthiban / Leo Das",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Vijay_at_the_Varisu_Audio_Launch.jpg/440px-Vijay_at_the_Varisu_Audio_Launch.jpg"
+      },
+      {
+        "name": "Sanjay Dutt",
+        "role": "Antony Das",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Sanjay_Dutt_at_Umang_2020.jpg/440px-Sanjay_Dutt_at_Umang_2020.jpg"
+      },
+      {
+        "name": "Trisha Krishnan",
+        "role": "Sathya Parthiban",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Trisha_Krishnan_at_PS1_promotions.jpg/440px-Trisha_Krishnan_at_PS1_promotions.jpg"
+      },
+      {
+        "name": "Arjun Sarja",
+        "role": "Harold Das",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Arjun_Sarja_at_the_Press_Meet.jpg/440px-Arjun_Sarja_at_the_Press_Meet.jpg"
+      }
+    ]
+  },
+  {
+    "id": "mov-tn-004",
+    "title": "Vettaiyan",
+    "genre": ["Action", "Social Drama", "Investigation"],
+    "rating": 9.0,
+    "votes": "194.2K",
+    "duration": "2h 43m",
+    "releaseDate": "2024-10-10",
+    "certificate": "UA 16+",
+    "language": "Tamil (Dolby Atmos)",
+    "formats": ["IMAX 2D", "Dolby Atmos", "2D Digital"],
+    "isFeatured": true,
+    "isNowShowing": true,
+    "isUpcoming": false,
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/6/68/Vettaiyan_poster.jpg",
+    "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/6/68/Vettaiyan_poster.jpg",
+    "synopsis": "SP Athiyan IPS, a celebrated encounter specialist in the Tamil Nadu Police, faces an acute moral reckoning when an encounter that he orchestrated over a brutal crime turns out to be an innocent setup orchestrating an insidious corporate ed-tech scandal.",
+    "director": "T.J. Gnanavel",
+    "price": 210.00,
+    "cast": [
+      {
+        "name": "Superstar Rajinikanth",
+        "role": "SP Athiyan IPS",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Rajinikanth_at_the_2019_International_Film_Festival_of_India.jpg/440px-Rajinikanth_at_the_2019_International_Film_Festival_of_India.jpg"
+      },
+      {
+        "name": "Amitabh Bachchan",
+        "role": "Justice Satyadev Pande",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Amitabh_Bachchan_at_the_launch_of_his_mobile_app_Celeb_Connect.jpg/440px-Amitabh_Bachchan_at_the_launch_of_his_mobile_app_Celeb_Connect.jpg"
+      },
+      {
+        "name": "Fahadh Faasil",
+        "role": "Patrick Battery",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Fahadh_Faasil_2019.jpg/440px-Fahadh_Faasil_2019.jpg"
+      },
+      {
+        "name": "Rana Daggubati",
+        "role": "Natraj",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Rana_Daggubati_at_the_screening_of_Baahubali.jpg/440px-Rana_Daggubati_at_the_screening_of_Baahubali.jpg"
+      }
+    ]
+  },
+  {
+    "id": "mov-tn-005",
+    "title": "Jailer",
+    "genre": ["Action", "Crime", "Dark Comedy"],
+    "rating": 9.2,
+    "votes": "412.5K",
+    "duration": "2h 48m",
+    "releaseDate": "2023-08-10",
+    "certificate": "UA 16+",
+    "language": "Tamil (Dolby Atmos)",
+    "formats": ["Dolby Atmos", "2D Digital"],
+    "isFeatured": false,
+    "isNowShowing": true,
+    "isUpcoming": false,
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/c/cb/Jailer_2023_Tamil_film_poster.jpg",
+    "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/c/cb/Jailer_2023_Tamil_film_poster.jpg",
+    "synopsis": "Muthuvel Pandian, a retired prison superintendent leading a peaceful family life in Chromepet, Chennai, is forced into a brutal war against an international antique smuggling syndicate led by Varman when his police officer son mysteriously vanishes.",
+    "director": "Nelson Dilipkumar",
+    "price": 180.00,
+    "cast": [
+      {
+        "name": "Superstar Rajinikanth",
+        "role": "Muthuvel Tiger Pandian",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Rajinikanth_at_the_2019_International_Film_Festival_of_India.jpg/440px-Rajinikanth_at_the_2019_International_Film_Festival_of_India.jpg"
+      },
+      {
+        "name": "Mohanlal",
+        "role": "Mathew (Cameo)",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Mohanlal_at_the_43rd_International_Film_Festival_of_India.jpg/440px-Mohanlal_at_the_43rd_International_Film_Festival_of_India.jpg"
+      },
+      {
+        "name": "Shiva Rajkumar",
+        "role": "Narasimha (Cameo)",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Shivarajkumar_at_Mufti_press_meet.jpg/440px-Shivarajkumar_at_Mufti_press_meet.jpg"
+      },
+      {
+        "name": "Vinayakan",
+        "role": "Varman",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Vinayakan_at_48th_Kerala_State_Film_Awards.jpg/440px-Vinayakan_at_48th_Kerala_State_Film_Awards.jpg"
+      }
+    ]
+  },
+  {
+    "id": "mov-tn-006",
+    "title": "Vikram: Hitlist",
+    "genre": ["Action", "Neo-Noir", "Crime Thriller"],
+    "rating": 9.5,
+    "votes": "520.8K",
+    "duration": "2h 53m",
+    "releaseDate": "2022-06-03",
+    "certificate": "UA 16+",
+    "language": "Tamil (Dolby Atmos)",
+    "formats": ["IMAX 2D", "Dolby Atmos", "2D Digital"],
+    "isFeatured": false,
+    "isNowShowing": true,
+    "isUpcoming": false,
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/9/93/Vikram_2022_poster.jpg",
+    "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/9/93/Vikram_2022_poster.jpg",
+    "synopsis": "A covert black-ops commander leads an elite strike team to bring down a masked vigilante cell executing corrupt narcotics officials, unaware that Karnan, the supposedly deceased father of a slain officer, is orchestrating a crusade to obliterate the cartel kingpin Santhanam.",
+    "director": "Lokesh Kanagaraj",
+    "price": 190.00,
+    "cast": [
+      {
+        "name": "Kamal Haasan",
+        "role": "Agent Vikram / Karnan",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Kamal_Haasan_at_2023_San_Diego_Comic-Con_International.jpg/440px-Kamal_Haasan_at_2023_San_Diego_Comic-Con_International.jpg"
+      },
+      {
+        "name": "Vijay Sethupathi",
+        "role": "Santhanam",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Vijay_Sethupathi_at_the_premiere_of_Merry_Christmas.jpg/440px-Vijay_Sethupathi_at_the_premiere_of_Merry_Christmas.jpg"
+      },
+      {
+        "name": "Fahadh Faasil",
+        "role": "Agent Amar",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Fahadh_Faasil_2019.jpg/440px-Fahadh_Faasil_2019.jpg"
+      },
+      {
+        "name": "Suriya",
+        "role": "Rolex (Special Cameo)",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Suriya_at_24_Press_Meet.jpg/440px-Suriya_at_24_Press_Meet.jpg"
+      }
+    ]
+  },
+  {
+    "id": "mov-tn-007",
+    "title": "Coolie",
+    "genre": ["Action", "Heist", "Mass Drama"],
+    "rating": 9.6,
+    "votes": "128.0K",
+    "duration": "2h 50m",
+    "releaseDate": "2025-05-01",
+    "certificate": "UA",
+    "language": "Tamil (Dolby Atmos)",
+    "formats": ["IMAX 2D", "Dolby Atmos", "EPIQ", "2D Digital"],
+    "isFeatured": true,
+    "isNowShowing": false,
+    "isUpcoming": true,
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/a/a8/Coolie_%282025_film%29_poster.jpg",
+    "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/a/a8/Coolie_%282025_film%29_poster.jpg",
+    "synopsis": "Superstar Rajinikanth unites with Lokesh Kanagaraj for a high-octane heist drama set against the shadowy gold-smuggling corridors of Chennai harbor, revolving around a former union leader fighting syndicate cartels.",
+    "director": "Lokesh Kanagaraj",
+    "price": 240.00,
+    "cast": [
+      {
+        "name": "Superstar Rajinikanth",
+        "role": "Deva",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Rajinikanth_at_the_2019_International_Film_Festival_of_India.jpg/440px-Rajinikanth_at_the_2019_International_Film_Festival_of_India.jpg"
+      },
+      {
+        "name": "Nagarjuna Akkineni",
+        "role": "Simon",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Nagarjuna_Akkineni_at_Wild_Dog_press_meet.jpg/440px-Nagarjuna_Akkineni_at_Wild_Dog_press_meet.jpg"
+      },
+      {
+        "name": "Soubin Shahir",
+        "role": "Dayal",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Soubin_Shahir_at_Manjummel_Boys_success_meet.jpg/440px-Soubin_Shahir_at_Manjummel_Boys_success_meet.jpg"
+      },
+      {
+        "name": "Shruti Haasan",
+        "role": "Preethi",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Shruti_Haasan_at_Salaar_Press_Meet.jpg/440px-Shruti_Haasan_at_Salaar_Press_Meet.jpg"
+      }
+    ]
+  },
+  {
+    "id": "mov-tn-008",
+    "title": "Thug Life",
+    "genre": ["Action", "Gangster", "Epic Drama"],
+    "rating": 9.4,
+    "votes": "115.6K",
+    "duration": "2h 45m",
+    "releaseDate": "2025-06-05",
+    "certificate": "UA",
+    "language": "Tamil (Dolby Atmos)",
+    "formats": ["IMAX 2D", "Dolby Atmos", "2D Digital"],
+    "isFeatured": false,
+    "isNowShowing": false,
+    "isUpcoming": true,
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/9/95/Thug_Life_2025.jpg",
+    "backdropUrl": "https://upload.wikimedia.org/wikipedia/en/9/95/Thug_Life_2025.jpg",
+    "synopsis": "37 years after their legendary masterpiece Nayakan, Kamal Haasan and maestro director Mani Ratnam reunite for an epic chronicle following Rangaraaya Sakthivel Nayakar across the rugged underworld terrain of India and Southeast Asia.",
+    "director": "Mani Ratnam",
+    "price": 230.00,
+    "cast": [
+      {
+        "name": "Kamal Haasan",
+        "role": "Rangaraaya Sakthivel Nayakar",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Kamal_Haasan_at_2023_San_Diego_Comic-Con_International.jpg/440px-Kamal_Haasan_at_2023_San_Diego_Comic-Con_International.jpg"
+      },
+      {
+        "name": "Silambarasan TR (STR)",
+        "role": "Amal",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Silambarasan_at_Vendhu_Thanindhathu_Kaadu_audio_launch.jpg/440px-Silambarasan_at_Vendhu_Thanindhathu_Kaadu_audio_launch.jpg"
+      },
+      {
+        "name": "Trisha Krishnan",
+        "role": "Indira",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Trisha_Krishnan_at_PS1_promotions.jpg/440px-Trisha_Krishnan_at_PS1_promotions.jpg"
+      },
+      {
+        "name": "Ashok Selvan",
+        "role": "Shakthi",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ashok_Selvan_at_Por_Thozhil_success_meet.jpg/440px-Ashok_Selvan_at_Por_Thozhil_success_meet.jpg"
+      }
+    ]
+  }
+]
