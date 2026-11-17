@@ -5,6 +5,7 @@ import '../models/theatre_model.dart';
 import '../services/booking_service.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
+import '../widgets/custom_button.dart';
 import 'seat_selection_screen.dart';
 
 class ShowtimeSelectionScreen extends StatefulWidget {
@@ -40,23 +41,230 @@ class _ShowtimeSelectionScreenState extends State<ShowtimeSelectionScreen> {
   }
 
   void _onShowtimeSelected(ScreenModel screen, ShowtimeModel showtime) {
-    final bookingService = BookingService();
-    bookingService.setMovie(widget.movie);
-    bookingService.setTheatre(widget.theatre);
-    bookingService.setScreen(screen);
-    bookingService.setShowtime(showtime.time);
-    bookingService.setDate(_formatSelectedDate(_dates[_selectedDateIndex], _selectedDateIndex));
+    _showSeatQuantityModal(screen, showtime);
+  }
 
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => SeatSelectionScreen(
-          movie: widget.movie,
-          theatre: widget.theatre,
-          screen: screen,
-          showtime: showtime.time,
-          date: _formatSelectedDate(_dates[_selectedDateIndex], _selectedDateIndex),
-        ),
+  void _showSeatQuantityModal(ScreenModel screen, ShowtimeModel showtime) {
+    int selectedSeats = BookingService().requestedSeatCount;
+    final vehicles = [
+      {'count': 1, 'icon': '🚴', 'label': 'Cycle'},
+      {'count': 2, 'icon': '🛵', 'label': 'Scooter'},
+      {'count': 3, 'icon': '🛺', 'label': 'Auto'},
+      {'count': 4, 'icon': '🚗', 'label': 'Mini Car'},
+      {'count': 5, 'icon': '🚙', 'label': 'Sedan'},
+      {'count': 6, 'icon': '🚐', 'label': 'SUV'},
+      {'count': 7, 'icon': '🚐', 'label': 'Van'},
+      {'count': 8, 'icon': '🚌', 'label': 'Minibus'},
+      {'count': 9, 'icon': '🚍', 'label': 'Bus'},
+      {'count': 10, 'icon': '✈️', 'label': 'Jumbo'},
+    ];
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: AppColors.surface,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
+      builder: (modalContext) {
+        return StatefulBuilder(
+          builder: (context, setModalState) {
+            final activeVehicle = vehicles[selectedSeats - 1];
+
+            return Padding(
+              padding: EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 14,
+                bottom: MediaQuery.of(modalContext).padding.bottom + 16,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 38,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: AppColors.surfaceBorder,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+
+                  Text(
+                    'How Many Seats?',
+                    style: AppTextStyles.titleLarge.copyWith(fontSize: 18),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // Vehicle Icon & Name Representation (BookMyShow Signature)
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: AppColors.surfaceLight,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          activeVehicle['icon'] as String,
+                          style: const TextStyle(fontSize: 30),
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          '$selectedSeats ${selectedSeats == 1 ? 'Seat' : 'Seats'} (${activeVehicle['label']})',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.textPrimary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // 1 to 10 Numbers Row
+                  SizedBox(
+                    height: 44,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 10,
+                      itemBuilder: (context, index) {
+                        final count = index + 1;
+                        final isSel = count == selectedSeats;
+
+                        return GestureDetector(
+                          onTap: () {
+                            setModalState(() {
+                              selectedSeats = count;
+                            });
+                          },
+                          child: AnimatedContainer(
+                            duration: const Duration(milliseconds: 180),
+                            width: 38,
+                            margin: const EdgeInsets.symmetric(horizontal: 4),
+                            decoration: BoxDecoration(
+                              color: isSel ? AppColors.primary : AppColors.surfaceLight,
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: isSel ? AppColors.primary : AppColors.surfaceBorder,
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                '$count',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w800,
+                                  color: isSel ? Colors.white : AppColors.textPrimary,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+
+                  const Divider(height: 1, color: AppColors.surfaceBorder),
+                  const SizedBox(height: 14),
+
+                  // Seat Tier Pricing Preview
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _buildTierPricePreview(
+                        'RECLINER',
+                        '₹${(screen.basePrice + 60).toStringAsFixed(0)}',
+                        AppColors.gold,
+                      ),
+                      _buildTierPricePreview(
+                        'PRIME',
+                        '₹${(screen.basePrice + 30).toStringAsFixed(0)}',
+                        AppColors.accentTeal,
+                      ),
+                      _buildTierPricePreview(
+                        'CLASSIC',
+                        '₹${screen.basePrice.toStringAsFixed(0)}',
+                        AppColors.textSecondary,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+
+                  // "Select Seats" Button
+                  CustomButton(
+                    text: 'Select Seats',
+                    icon: Icons.chair_rounded,
+                    onPressed: () {
+                      Navigator.pop(modalContext);
+
+                      final bookingService = BookingService();
+                      bookingService.setMovie(widget.movie);
+                      bookingService.setTheatre(widget.theatre);
+                      bookingService.setScreen(screen);
+                      bookingService.setShowtime(showtime.time);
+                      bookingService.setDate(_formatSelectedDate(_dates[_selectedDateIndex], _selectedDateIndex));
+                      bookingService.setRequestedSeatCount(selectedSeats);
+                      bookingService.clearSeats();
+
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => SeatSelectionScreen(
+                            movie: widget.movie,
+                            theatre: widget.theatre,
+                            screen: screen,
+                            showtime: showtime.time,
+                            date: _formatSelectedDate(_dates[_selectedDateIndex], _selectedDateIndex),
+                            requestedSeatCount: selectedSeats,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildTierPricePreview(String tier, String price, Color color) {
+    return Column(
+      children: [
+        Text(
+          tier,
+          style: TextStyle(
+            fontSize: 10.5,
+            fontWeight: FontWeight.w700,
+            color: color,
+            letterSpacing: 0.5,
+          ),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          price,
+          style: const TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight.w800,
+            color: AppColors.textPrimary,
+          ),
+        ),
+        const SizedBox(height: 1),
+        const Text(
+          'Available',
+          style: TextStyle(
+            fontSize: 9.5,
+            color: AppColors.accentGreen,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
     );
   }
 

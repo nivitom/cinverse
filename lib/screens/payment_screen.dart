@@ -88,6 +88,96 @@ class _PaymentScreenState extends State<PaymentScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Booking Order Overview Card
+            Container(
+              margin: const EdgeInsets.only(bottom: 14),
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: AppColors.surface,
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(color: AppColors.surfaceBorder),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Icon(Icons.movie_creation_rounded, size: 20, color: AppColors.primary),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              bookingService.selectedMovie?.title ?? 'Kollywood Blockbuster',
+                              style: AppTextStyles.titleMedium.copyWith(fontSize: 15, fontWeight: FontWeight.w700),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              '${bookingService.selectedTheatre?.name ?? 'Cinema'} • ${bookingService.selectedScreen?.name ?? 'Screen 1'}',
+                              style: AppTextStyles.caption.copyWith(color: AppColors.textSecondary),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  const Divider(height: 1, color: AppColors.surfaceBorder),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(Icons.calendar_today_rounded, size: 13, color: AppColors.textSecondary),
+                          const SizedBox(width: 6),
+                          Text(
+                            '${bookingService.selectedDate} • ${bookingService.selectedShowtime}',
+                            style: AppTextStyles.caption.copyWith(color: AppColors.textPrimary, fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        '${bookingService.selectedSeats.length} ${bookingService.selectedSeats.length == 1 ? 'Seat' : 'Seats'}',
+                        style: AppTextStyles.caption.copyWith(color: AppColors.primary, fontWeight: FontWeight.w700),
+                      ),
+                    ],
+                  ),
+                  if (bookingService.selectedSeats.isNotEmpty) ...[
+                    const SizedBox(height: 8),
+                    Wrap(
+                      spacing: 5,
+                      runSpacing: 4,
+                      children: bookingService.selectedSeats.map((s) {
+                        return Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: AppColors.surfaceLight,
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(color: AppColors.accentGreen.withValues(alpha: 0.4)),
+                          ),
+                          child: Text(
+                            s.id,
+                            style: const TextStyle(
+                              color: AppColors.accentGreen,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 10.5,
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+
             // Amount Header (BookMyShow Style)
             Container(
               padding: const EdgeInsets.all(16),
@@ -344,7 +434,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         onTap: () => setState(() => _selectedMethod = index),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.symmetric(vertical: 12),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
           decoration: BoxDecoration(
             color: isSelected ? AppColors.primary : AppColors.surface,
             borderRadius: BorderRadius.circular(12),
@@ -358,12 +448,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
             children: [
               Icon(icon, size: 20, color: isSelected ? Colors.white : AppColors.textSecondary),
               const SizedBox(height: 4),
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 10.5,
-                  fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-                  color: isSelected ? Colors.white : AppColors.textSecondary,
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  style: TextStyle(
+                    fontSize: 10.5,
+                    fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                    color: isSelected ? Colors.white : AppColors.textSecondary,
+                  ),
                 ),
               ),
             ],

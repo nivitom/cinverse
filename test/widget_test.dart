@@ -214,6 +214,45 @@ void main() {
       bookingService.cancelBooking(booking.id);
       expect(bookingService.pastBookings.any((b) => b.id == booking.id && b.status == 'CANCELLED'), true);
     });
+
+    test('BookingService requestedSeatCount restricts 1 to 10 and resets properly', () {
+      final bookingService = BookingService();
+      bookingService.setRequestedSeatCount(5);
+      expect(bookingService.requestedSeatCount, 5);
+
+      bookingService.setRequestedSeatCount(0); // below min
+      expect(bookingService.requestedSeatCount, 1);
+
+      bookingService.setRequestedSeatCount(15); // above max
+      expect(bookingService.requestedSeatCount, 10);
+
+      bookingService.resetDraft();
+      expect(bookingService.requestedSeatCount, 2);
+      expect(bookingService.selectedSeats.isEmpty, true);
+    });
+
+    test('BookingService calculates ticket prices dynamically based on seat tiers', () {
+      final bookingService = BookingService();
+      bookingService.resetDraft();
+
+      final vipSeat = SeatModel(id: 'A1', row: 'A', number: 1, tier: SeatTier.vip, price: 250.0);
+      final primeSeat = SeatModel(id: 'B1', row: 'B', number: 1, tier: SeatTier.premium, price: 220.0);
+      final classicSeat = SeatModel(id: 'E1', row: 'E', number: 1, tier: SeatTier.standard, price: 190.0);
+
+      bookingService.toggleSeat(vipSeat);
+      expect(bookingService.ticketsSubtotal, 250.0);
+
+      bookingService.toggleSeat(primeSeat);
+      expect(bookingService.ticketsSubtotal, 470.0);
+
+      bookingService.toggleSeat(classicSeat);
+      expect(bookingService.ticketsSubtotal, 660.0);
+
+      // Deselect primeSeat
+      bookingService.toggleSeat(primeSeat);
+      expect(bookingService.ticketsSubtotal, 440.0);
+      expect(bookingService.selectedSeats.length, 2);
+    });
   });
 
   group('Widget Tests', () {

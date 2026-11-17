@@ -129,44 +129,102 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
 
                 const SizedBox(height: 14),
 
-                // Showtime & Seats Ribbon (BookMyShow Style)
+                // Showtime & Seats Card (Fully Responsive BookMyShow Design)
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
                     color: AppColors.surface,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: AppColors.surfaceBorder),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Icon(Icons.calendar_today_rounded, size: 15, color: AppColors.primary),
+                          Expanded(
+                            child: Row(
+                              children: [
+                                const Icon(Icons.calendar_today_rounded, size: 15, color: AppColors.primary),
+                                const SizedBox(width: 8),
+                                Expanded(
+                                  child: Text(
+                                    '${bookingService.selectedDate} • ${bookingService.selectedShowtime}',
+                                    style: AppTextStyles.caption.copyWith(
+                                      color: AppColors.textPrimary,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 12.5,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                           const SizedBox(width: 8),
-                          Text(
-                            '${bookingService.selectedDate} • ${bookingService.selectedShowtime}',
-                            style: AppTextStyles.caption.copyWith(
-                              color: AppColors.textPrimary,
-                              fontWeight: FontWeight.w600,
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                            decoration: BoxDecoration(
+                              color: AppColors.accentGreen.withValues(alpha: 0.15),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: Text(
+                              '${seats.length} ${seats.length == 1 ? 'Seat' : 'Seats'}',
+                              style: const TextStyle(
+                                color: AppColors.accentGreen,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 11,
+                              ),
                             ),
                           ),
                         ],
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: AppColors.accentGreen.withValues(alpha: 0.18),
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: AppColors.accentGreen.withValues(alpha: 0.5)),
-                        ),
-                        child: Text(
-                          seats.isEmpty ? 'No seat' : seats.map((s) => s.id).join(', '),
-                          style: AppTextStyles.caption.copyWith(
-                            color: AppColors.accentGreen,
-                            fontWeight: FontWeight.w700,
+                      const SizedBox(height: 10),
+                      const Divider(height: 1, color: AppColors.surfaceBorder),
+                      const SizedBox(height: 10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2),
+                            child: Text(
+                              'Seats: ',
+                              style: AppTextStyles.caption.copyWith(
+                                color: AppColors.textSecondary,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                           ),
-                        ),
+                          const SizedBox(width: 6),
+                          Expanded(
+                            child: seats.isEmpty
+                                ? Text('No seat selected', style: AppTextStyles.caption.copyWith(color: AppColors.textMuted))
+                                : Wrap(
+                                    spacing: 6,
+                                    runSpacing: 6,
+                                    children: seats.map((s) {
+                                      return Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2.5),
+                                        decoration: BoxDecoration(
+                                          color: AppColors.surfaceLight,
+                                          borderRadius: BorderRadius.circular(6),
+                                          border: Border.all(color: AppColors.accentGreen.withValues(alpha: 0.5)),
+                                        ),
+                                        child: Text(
+                                          '${s.id} (${s.tierName})',
+                                          style: const TextStyle(
+                                            color: AppColors.accentGreen,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 11,
+                                          ),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -312,14 +370,16 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
                 ),
                 const SizedBox(height: 8),
                 // Suggested Promo Chips
-                Row(
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 6,
+                  crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     Text('Tap to apply: ', style: AppTextStyles.caption.copyWith(color: AppColors.textMuted)),
                     GestureDetector(
                       onTap: () => _applyPromo('CINEMA20'),
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                        margin: const EdgeInsets.only(right: 8),
                         decoration: BoxDecoration(
                           color: AppColors.primary.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(6),
@@ -327,7 +387,7 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
                         ),
                         child: Text(
                           'CINEMA20 (-20%)',
-                          style: AppTextStyles.caption.copyWith(color: AppColors.primaryLight, fontWeight: FontWeight.w700),
+                          style: AppTextStyles.caption.copyWith(color: AppColors.primary, fontWeight: FontWeight.w700),
                         ),
                       ),
                     ),
@@ -439,23 +499,31 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
             ),
             child: Row(
               children: [
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Total Payable', style: AppTextStyles.caption.copyWith(color: AppColors.textSecondary)),
-                    Text(
-                      '₹${bookingService.grandTotal.toStringAsFixed(2)}',
-                      style: AppTextStyles.titleLarge.copyWith(
-                        color: AppColors.textPrimary,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(width: 20),
                 Expanded(
+                  flex: 4,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Total Payable', style: AppTextStyles.caption.copyWith(color: AppColors.textSecondary)),
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          '₹${bookingService.grandTotal.toStringAsFixed(2)}',
+                          style: AppTextStyles.titleLarge.copyWith(
+                            color: AppColors.textPrimary,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  flex: 6,
                   child: CustomButton(
                     text: 'Proceed to Pay',
                     icon: Icons.lock_outline_rounded,
@@ -473,13 +541,17 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
   Widget _buildBillRow(String label, String value, {bool isTotal = false, Color? valueColor}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: isTotal
-              ? AppTextStyles.titleMedium.copyWith(fontWeight: FontWeight.w700)
-              : AppTextStyles.bodyMedium.copyWith(color: AppColors.textSecondary, fontSize: 13),
+        Expanded(
+          child: Text(
+            label,
+            style: isTotal
+                ? AppTextStyles.titleMedium.copyWith(fontWeight: FontWeight.w700)
+                : AppTextStyles.bodyMedium.copyWith(color: AppColors.textSecondary, fontSize: 13),
+          ),
         ),
+        const SizedBox(width: 10),
         Text(
           value,
           style: isTotal

@@ -33,6 +33,7 @@ class BookingService extends ChangeNotifier {
   ScreenModel? selectedScreen;
   String selectedShowtime = '06:15 PM';
   String selectedDate = 'Today, 14 Nov';
+  int requestedSeatCount = 2; // Default 2 seats (1-10)
   List<SeatModel> selectedSeats = [];
   Map<String, int> selectedSnacks = {}; // itemId -> quantity
   String? appliedPromoCode;
@@ -131,6 +132,11 @@ class BookingService extends ChangeNotifier {
 
   void setDate(String date) {
     selectedDate = date;
+    notifyListeners();
+  }
+
+  void setRequestedSeatCount(int count) {
+    requestedSeatCount = count.clamp(1, 10);
     notifyListeners();
   }
 
@@ -280,6 +286,7 @@ class BookingService extends ChangeNotifier {
     selectedSnacks.clear();
     appliedPromoCode = null;
     promoDiscountPercent = 0.0;
+    requestedSeatCount = 2;
     notifyListeners();
   }
 }

@@ -18,6 +18,7 @@ class SeatSelectionScreen extends StatefulWidget {
   final ScreenModel screen;
   final String showtime;
   final String date;
+  final int requestedSeatCount;
 
   const SeatSelectionScreen({
     super.key,
@@ -26,6 +27,7 @@ class SeatSelectionScreen extends StatefulWidget {
     required this.screen,
     required this.showtime,
     required this.date,
+    this.requestedSeatCount = 2,
   });
 
   @override
@@ -39,6 +41,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
   @override
   void initState() {
     super.initState();
+    BookingService().clearSeats();
     _generateSeatLayout();
   }
 
@@ -95,25 +98,64 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
   void _toggleSeat(SeatModel seat) {
     if (seat.status == SeatStatus.booked) return;
 
-    setState(() {
-      if (seat.status == SeatStatus.selected) {
-        seat.status = SeatStatus.available;
-      } else {
-        seat.status = SeatStatus.selected;
-      }
-    });
+    final bookingService = BookingService();
 
-    BookingService().toggleSeat(seat);
+    if (seat.status == SeatStatus.selected) {
+      setState(() {
+        seat.status = SeatStatus.available;
+      });
+      bookingService.toggleSeat(seat);
+      return;
+    }
+
+    // Attempting to select an available seat
+    if (bookingService.selectedSeats.length < widget.requestedSeatCount) {
+      setState(() {
+        seat.status = SeatStatus.selected;
+      });
+      bookingService.toggleSeat(seat);
+    } else if (widget.requestedSeatCount == 1) {
+      // Single seat switch
+      for (var row in _seatMatrix) {
+        for (var s in row) {
+          if (s.status == SeatStatus.selected) {
+            s.status = SeatStatus.available;
+          }
+        }
+      }
+      setState(() {
+        seat.status = SeatStatus.selected;
+      });
+      bookingService.clearSeats();
+      bookingService.toggleSeat(seat);
+    } else {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: AppColors.black,
+          content: Text(
+            'You chose ${widget.requestedSeatCount} seats. Tap a selected seat to unselect it.',
+            style: const TextStyle(color: Colors.white, fontSize: 13),
+          ),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    }
   }
 
   void _proceedToCheckout() {
     final bookingService = BookingService();
 
-    if (bookingService.selectedSeats.isEmpty) {
+    if (bookingService.selectedSeats.length != widget.requestedSeatCount) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: AppColors.black,
           content: Text(
-            'Please select at least one seat to proceed.',
+            'Please select exactly ${widget.requestedSeatCount} seats (${bookingService.selectedSeats.length} selected).',
+            style: const TextStyle(color: Colors.white, fontSize: 13),
           ),
         ),
       );
@@ -159,16 +201,18 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
           const Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 20,
-              vertical: 10,
+              vertical: 8,
             ),
             child: CinemaScreenWidget(),
           ),
 
-          const SizedBox(height: 6),
+          _buildSelectionStatusBanner(bookingService.selectedSeats.length),
+
+          const SizedBox(height: 4),
 
           _buildSeatLegend(),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
 
           Expanded(
             child: SingleChildScrollView(
@@ -176,45 +220,108 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                 horizontal: 16,
                 vertical: 6,
               ),
-              child: Column(
-                children: [
-                  _buildTierHeader(
-                    'RECLINERS – ₹${(widget.screen.basePrice + 60).toStringAsFixed(0)}',
-                    AppColors.gold,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minWidth: MediaQuery.of(context).size.width - 32,
                   ),
+                  child: Column(
+                    children: [
+                      _buildTierHeader(
+                        'RECLINERS – ₹${(widget.screen.basePrice + 60).toStringAsFixed(0)}',
+                        AppColors.gold,
+                      ),
 
-                  _buildSeatRow(_seatMatrix[0]),
+                      _buildSeatRow(_seatMatrix[0]),
 
-                  const SizedBox(height: 16),
+                      const SizedBox(height: 16),
 
-                  _buildTierHeader(
-                    'PRIME – ₹${(widget.screen.basePrice + 30).toStringAsFixed(0)}',
-                    AppColors.accentTeal,
+                      _buildTierHeader(
+                        'PRIME – ₹${(widget.screen.basePrice + 30).toStringAsFixed(0)}',
+                        AppColors.accentTeal,
+                      ),
+
+                      _buildSeatRow(_seatMatrix[1]),
+                      _buildSeatRow(_seatMatrix[2]),
+                      _buildSeatRow(_seatMatrix[3]),
+
+                      const SizedBox(height: 16),
+
+                      _buildTierHeader(
+                        'CLASSIC – ₹${widget.screen.basePrice.toStringAsFixed(0)}',
+                        AppColors.textSecondary,
+                      ),
+
+                      _buildSeatRow(_seatMatrix[4]),
+                      _buildSeatRow(_seatMatrix[5]),
+                      _buildSeatRow(_seatMatrix[6]),
+                      _buildSeatRow(_seatMatrix[7]),
+
+                      const SizedBox(height: 20),
+                    ],
                   ),
-
-                  _buildSeatRow(_seatMatrix[1]),
-                  _buildSeatRow(_seatMatrix[2]),
-                  _buildSeatRow(_seatMatrix[3]),
-
-                  const SizedBox(height: 16),
-
-                  _buildTierHeader(
-                    'CLASSIC – ₹${widget.screen.basePrice.toStringAsFixed(0)}',
-                    AppColors.textSecondary,
-                  ),
-
-                  _buildSeatRow(_seatMatrix[4]),
-                  _buildSeatRow(_seatMatrix[5]),
-                  _buildSeatRow(_seatMatrix[6]),
-                  _buildSeatRow(_seatMatrix[7]),
-
-                  const SizedBox(height: 20),
-                ],
+                ),
               ),
             ),
           ),
 
           _buildBottomActionCard(bookingService),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSelectionStatusBanner(int selectedCount) {
+    final remaining = widget.requestedSeatCount - selectedCount;
+    final isComplete = selectedCount == widget.requestedSeatCount;
+
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+      decoration: BoxDecoration(
+        color: isComplete
+            ? AppColors.accentGreen.withValues(alpha: 0.1)
+            : AppColors.primary.withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: isComplete
+              ? AppColors.accentGreen.withValues(alpha: 0.4)
+              : AppColors.primary.withValues(alpha: 0.3),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Icon(
+                isComplete ? Icons.check_circle_rounded : Icons.event_seat_rounded,
+                size: 16,
+                color: isComplete ? AppColors.accentGreen : AppColors.primary,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                isComplete
+                    ? 'All $selectedCount seats selected'
+                    : 'Select $remaining more seat${remaining > 1 ? 's' : ''}',
+                style: TextStyle(
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.w700,
+                  color: isComplete ? AppColors.accentGreen : AppColors.textPrimary,
+                ),
+              ),
+            ],
+          ),
+          Text(
+            '$selectedCount / ${widget.requestedSeatCount} Seats',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w800,
+              color: isComplete ? AppColors.accentGreen : AppColors.primary,
+            ),
+          ),
         ],
       ),
     );
@@ -396,6 +503,14 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
       ) {
     final selected = bookingService.selectedSeats;
     final total = bookingService.ticketsSubtotal;
+    final isComplete = selected.length == widget.requestedSeatCount;
+    final remaining = widget.requestedSeatCount - selected.length;
+
+    final buttonText = isComplete
+        ? 'Pay ₹${total.toStringAsFixed(0)}'
+        : (selected.isEmpty
+            ? 'Select ${widget.requestedSeatCount} Seats'
+            : 'Select $remaining more seat${remaining > 1 ? 's' : ''}');
 
     return Container(
       padding: EdgeInsets.only(
@@ -435,7 +550,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                 const SizedBox(width: 6),
 
                 Text(
-                  '${selected.length} Seat(s): ',
+                  '${selected.length} of ${widget.requestedSeatCount} Seat(s): ',
                   style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 12,
@@ -483,40 +598,44 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
 
           Row(
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Total Amount',
-                    style: AppTextStyles.caption.copyWith(
-                      fontSize: 10.5,
+              Expanded(
+                flex: 4,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Total Amount',
+                      style: AppTextStyles.caption.copyWith(
+                        fontSize: 10.5,
+                      ),
                     ),
-                  ),
 
-                  const SizedBox(height: 1),
+                    const SizedBox(height: 1),
 
-                  Text(
-                    '₹${total.toStringAsFixed(2)}',
-                    style: const TextStyle(
-                      color: AppColors.textPrimary,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        '₹${total.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                          color: AppColors.textPrimary,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
 
-              const SizedBox(width: 20),
+              const SizedBox(width: 12),
 
               Expanded(
+                flex: 6,
                 child: CustomButton(
-                  text: selected.isEmpty
-                      ? 'Select Seats'
-                      : 'Pay ₹${total.toStringAsFixed(0)}',
-                  icon: Icons.check_circle_outline,
-                  onPressed: selected.isEmpty
-                      ? null
-                      : _proceedToCheckout,
+                  text: buttonText,
+                  icon: isComplete ? Icons.check_circle_outline : Icons.chair_rounded,
+                  onPressed: isComplete ? _proceedToCheckout : null,
                 ),
               ),
             ],
