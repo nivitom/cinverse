@@ -282,13 +282,13 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
       decoration: BoxDecoration(
         color: isComplete
-            ? AppColors.accentGreen.withValues(alpha: 0.1)
-            : AppColors.primary.withValues(alpha: 0.08),
+            ? AppColors.primary.withValues(alpha: 0.08)
+            : AppColors.surfaceLight,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           color: isComplete
-              ? AppColors.accentGreen.withValues(alpha: 0.4)
-              : AppColors.primary.withValues(alpha: 0.3),
+              ? AppColors.primary
+              : AppColors.surfaceBorder,
         ),
       ),
       child: Row(
@@ -299,7 +299,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
               Icon(
                 isComplete ? Icons.check_circle_rounded : Icons.event_seat_rounded,
                 size: 16,
-                color: isComplete ? AppColors.accentGreen : AppColors.primary,
+                color: isComplete ? AppColors.primary : AppColors.textSecondary,
               ),
               const SizedBox(width: 8),
               Text(
@@ -309,7 +309,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                 style: TextStyle(
                   fontSize: 12.5,
                   fontWeight: FontWeight.w700,
-                  color: isComplete ? AppColors.accentGreen : AppColors.textPrimary,
+                  color: isComplete ? AppColors.primary : AppColors.textPrimary,
                 ),
               ),
             ],
@@ -319,7 +319,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w800,
-              color: isComplete ? AppColors.accentGreen : AppColors.primary,
+              color: isComplete ? AppColors.primary : AppColors.textSecondary,
             ),
           ),
         ],
@@ -441,15 +441,15 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
         children: [
           _buildLegendChip(
             Colors.white,
-            AppColors.seatAvailableBorder,
+            const Color(0xFFD0D0D0),
             'Available',
           ),
 
           const SizedBox(width: 16),
 
           _buildLegendChip(
-            AppColors.seatSelected,
-            AppColors.seatSelected,
+            AppColors.primary,
+            AppColors.primary,
             'Selected',
           ),
 
@@ -457,8 +457,8 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
 
           _buildLegendChip(
             AppColors.seatBooked,
-            AppColors.surfaceBorder,
-            'Sold',
+            const Color(0xFFCCCCCC),
+            'Occupied',
           ),
         ],
       ),
@@ -544,13 +544,13 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                 const Icon(
                   Icons.chair_rounded,
                   size: 15,
-                  color: AppColors.accentGreen,
+                  color: AppColors.primary,
                 ),
 
                 const SizedBox(width: 6),
 
                 Text(
-                  '${selected.length} of ${widget.requestedSeatCount} Seat(s): ',
+                  'Seats (${selected.length}/${widget.requestedSeatCount}): ',
                   style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 12,
@@ -570,17 +570,13 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                             vertical: 2,
                           ),
                           decoration: BoxDecoration(
-                            color: AppColors.surfaceLight,
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(4),
-                            border: Border.all(
-                              color: AppColors.accentGreen,
-                              width: 0.8,
-                            ),
                           ),
                           child: Text(
                             s.id,
                             style: const TextStyle(
-                              color: AppColors.accentGreen,
+                              color: Colors.white,
                               fontWeight: FontWeight.w700,
                               fontSize: 11,
                             ),
@@ -604,7 +600,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Total Amount',
+                      'Total Price',
                       style: AppTextStyles.caption.copyWith(
                         fontSize: 10.5,
                       ),

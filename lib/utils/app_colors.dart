@@ -46,9 +46,9 @@ class AppColors {
 
   // Seat Status Colors (BookMyShow Official White & Red Theme)
   static const Color seatAvailable = Color(0xFFFFFFFF);
-  static const Color seatAvailableBorder = Color(0xFF1EA5BD); // Available Teal Outline
-  static const Color seatSelected = Color(0xFF10B981); // BMS Selected Green
-  static const Color seatBooked = Color(0xFFE0E0E0); // Sold Out Light Grey Fill
+  static const Color seatAvailableBorder = Color(0xFFD0D0D0); // Available Neutral Outline
+  static const Color seatSelected = Color(0xFFE31E24); // BMS Selected Red (#E31E24)
+  static const Color seatBooked = Color(0xFFE0E0E0); // Sold Out / Occupied Grey Fill
   static const Color seatBookedIcon = Color(0xFF9E9E9E); // Muted Icon
 
   // Gradients

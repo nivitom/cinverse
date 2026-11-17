@@ -293,12 +293,21 @@ void main() {
         ),
       );
 
-      // Available seat displays seat number '3'
+      // Available seat displays seat number '3' and white fill
       expect(find.text('3'), findsOneWidget);
-      // Selected seat displays checkmark icon
+      // Selected seat displays checkmark icon and red fill
       expect(find.byIcon(Icons.check), findsOneWidget);
-      // Booked seat displays close icon
+      // Booked seat displays close icon and grey fill
       expect(find.byIcon(Icons.close), findsOneWidget);
+
+      final containers = tester.widgetList<AnimatedContainer>(find.byType(AnimatedContainer)).toList();
+      final availableBox = containers[0].decoration as BoxDecoration;
+      final selectedBox = containers[1].decoration as BoxDecoration;
+      final bookedBox = containers[2].decoration as BoxDecoration;
+
+      expect(availableBox.color, Colors.white);
+      expect(selectedBox.color, const Color(0xFFE31E24)); // Red
+      expect(bookedBox.color, const Color(0xFFE0E0E0)); // Grey
     });
   });
 }

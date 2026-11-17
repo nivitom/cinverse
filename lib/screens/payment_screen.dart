@@ -160,12 +160,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           decoration: BoxDecoration(
                             color: AppColors.surfaceLight,
                             borderRadius: BorderRadius.circular(4),
-                            border: Border.all(color: AppColors.accentGreen.withValues(alpha: 0.4)),
+                            border: Border.all(color: AppColors.primary.withValues(alpha: 0.5)),
                           ),
                           child: Text(
                             s.id,
                             style: const TextStyle(
-                              color: AppColors.accentGreen,
+                              color: AppColors.primary,
                               fontWeight: FontWeight.w700,
                               fontSize: 10.5,
                             ),

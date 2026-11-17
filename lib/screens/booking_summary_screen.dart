@@ -167,13 +167,13 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                             decoration: BoxDecoration(
-                              color: AppColors.accentGreen.withValues(alpha: 0.15),
+                              color: AppColors.primary.withValues(alpha: 0.12),
                               borderRadius: BorderRadius.circular(6),
                             ),
                             child: Text(
                               '${seats.length} ${seats.length == 1 ? 'Seat' : 'Seats'}',
                               style: const TextStyle(
-                                color: AppColors.accentGreen,
+                                color: AppColors.primary,
                                 fontWeight: FontWeight.w800,
                                 fontSize: 11,
                               ),
@@ -210,12 +210,12 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
                                         decoration: BoxDecoration(
                                           color: AppColors.surfaceLight,
                                           borderRadius: BorderRadius.circular(6),
-                                          border: Border.all(color: AppColors.accentGreen.withValues(alpha: 0.5)),
+                                          border: Border.all(color: AppColors.primary.withValues(alpha: 0.5)),
                                         ),
                                         child: Text(
                                           '${s.id} (${s.tierName})',
                                           style: const TextStyle(
-                                            color: AppColors.accentGreen,
+                                            color: AppColors.primary,
                                             fontWeight: FontWeight.w700,
                                             fontSize: 11,
                                           ),

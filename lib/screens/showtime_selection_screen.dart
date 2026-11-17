@@ -195,10 +195,10 @@ class _ShowtimeSelectionScreenState extends State<ShowtimeSelectionScreen> {
                   ),
                   const SizedBox(height: 20),
 
-                  // "Select Seats" Button
+                  // "Continue" Button
                   CustomButton(
-                    text: 'Select Seats',
-                    icon: Icons.chair_rounded,
+                    text: 'Continue',
+                    icon: Icons.arrow_forward_rounded,
                     onPressed: () {
                       Navigator.pop(modalContext);
 

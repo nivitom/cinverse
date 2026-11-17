@@ -20,27 +20,25 @@ class SeatItemWidget extends StatelessWidget {
 
     switch (seat.status) {
       case SeatStatus.selected:
-        fillColor = AppColors.accentGreen; // BookMyShow green for selected seat
-        borderColor = AppColors.accentGreen;
+        fillColor = AppColors.primary; // BookMyShow Signature Red for selected seat
+        borderColor = AppColors.primary;
         textColor = Colors.white;
         break;
       case SeatStatus.booked:
-        fillColor = AppColors.seatBooked;
-        borderColor = AppColors.surfaceBorder;
-        textColor = AppColors.seatBookedIcon;
+        fillColor = AppColors.seatBooked; // Occupied seat in Grey (#E0E0E0)
+        borderColor = const Color(0xFFCCCCCC);
+        textColor = AppColors.seatBookedIcon; // Grey muted icon
         break;
       case SeatStatus.available:
+        fillColor = Colors.white; // Available seat in White
         if (seat.tier == SeatTier.vip) {
-          fillColor = Colors.white;
           borderColor = AppColors.gold;
-          textColor = AppColors.gold;
+          textColor = AppColors.textPrimary;
         } else if (seat.tier == SeatTier.premium) {
-          fillColor = Colors.white;
           borderColor = AppColors.accentTeal;
           textColor = AppColors.textPrimary;
         } else {
-          fillColor = Colors.white;
-          borderColor = AppColors.accentGreen.withValues(alpha: 0.8);
+          borderColor = const Color(0xFFD0D0D0);
           textColor = AppColors.textPrimary;
         }
         break;
@@ -63,7 +61,7 @@ class SeatItemWidget extends StatelessWidget {
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: AppColors.accentGreen.withValues(alpha: 0.4),
+                    color: AppColors.primary.withValues(alpha: 0.4),
                     blurRadius: 6,
                     spreadRadius: 1,
                   ),
